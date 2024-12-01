@@ -30,6 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['act'] === 'send') {
         echo json_encode(['code' => 0, 'result' => '验证码验证未完成，请完成验证后重试']);
         exit;
     }
+    if ($cfResponse==$_SESSION['cfResponse']) {
+        echo json_encode(['code' => 0, 'result' => '验证码已经发送到你邮箱，请查看邮箱']);
+        exit;
+    }
     
 
     $data = [
@@ -55,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['act'] === 'send') {
 
     // 邮件发送逻辑
     if (send($email, $info['title'], "你的验证码", "你的验证码：".$code."<br>该验证码仅用于活动抽奖，如果不是本人操作请无视", "你的验证码：".$code."该验证码仅用于活动抽奖，如果不是本人操作请无视", $info)) {
-       $_SESSION['emailcode'] = $code;
-
-    echo json_encode(['code' => 1, 'result' => '验证码发送成功']);
+        $_SESSION['emailcode'] = $code;
+        $_SESSION['cfResponse']=$cfResponse;
+        echo json_encode(['code' => 1, 'result' => '验证码发送成功']);
     } else {
         echo json_encode(['code' => 0, 'result' => '邮件服务未响应']);
     }
