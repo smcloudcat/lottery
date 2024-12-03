@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>登录页面 - 小猫咪抽奖系统</title>
     <link rel="icon" href="favicon.ico" type="image/ico">
-    <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-    <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+    <meta name="keywords" content="小猫咪抽奖系统,年会抽奖系统,节日抽奖系统,双十一活动,618活动,双十二活动">
+    <meta name="description" content="小猫咪抽奖系统，一款开源免费的php抽奖系统，可用于年会抽奖，节日抽奖等等，支持自定义奖品概率和数量，页面简介美观，操作容易">
     <meta name="author" content="yinqi">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/materialdesignicons.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            background-image: url(../../images/login-bg-2.jpg);
+            background-image: url(https://img.czzu.cn/u/lottery/X1Qy1NnL.png);
             background-size: cover;
         }
         .login-box {

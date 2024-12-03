@@ -5,7 +5,7 @@ $codeuse=1;
 $directoryPath = '../../';
 include("../../core/xiaocore.php");
 
-$secretKey = '0x4AAAAAAA0fEw_NmKpEDWjPERyUYJQ2Ekc';
+$secretKey = '';
 
 $code=getcode();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['act'] === 'send') {

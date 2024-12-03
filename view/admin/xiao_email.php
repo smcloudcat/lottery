@@ -141,8 +141,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">保存修改</button>
                     </form>
-                    <br>
-                    <a href="admin.php" class="btn btn-default btn-block">返回后台管理</a>
                 </div>
             </div>
         </div>

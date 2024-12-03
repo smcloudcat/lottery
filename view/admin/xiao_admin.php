@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($new_password !== $confirm_password) {
-        $delete_message="两次密码不一致";
+        echo "<script>alert('两次密码不一致'); window.location.href = '';</script>";
     }
 
     $encrypted_password = md5(md5($new_password));
@@ -50,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>修改管理员账号密码</title>
+    <meta name="keywords" content="小猫咪抽奖系统,年会抽奖系统,节日抽奖系统,双十一活动,618活动,双十二活动">
+    <meta name="description" content="小猫咪抽奖系统，一款开源免费的php抽奖系统，可用于年会抽奖，节日抽奖等等，支持自定义奖品概率和数量，页面简介美观，操作容易">
     <link rel="icon" href="favicon.ico" type="image/ico">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/materialdesignicons.min.css" rel="stylesheet">
@@ -65,9 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h4>修改管理员账号密码</h4>
                 </div>
                 <div class="card-body">
-                     <?php if (isset($delete_message)): ?>
-                        <div class="alert alert-info"><?php echo $delete_message; ?></div>
-                    <?php endif; ?>
                     <form action="" method="POST">
                         <div class="form-group has-feedback feedback-left">
                             <label>当前用户名</label>

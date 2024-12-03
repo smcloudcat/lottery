@@ -60,7 +60,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`, `announcement`, `title`, `keywords`, `description`, `foot`, `logo`, `name`, `avatar`, `emailsend`, `emailtype`, `stmp`, `port`, `sec`, `emailname`, `emailpass`, `cfcode`, `sitekey`, `secretKey`, `allowemail`, `update1`, `update2`, `update3`) VALUES
-(1, 'admin', '14e1b600b1fd579f47433b88e8d85291', '抽奖请备注你的联系方式<br><font  color=\"red\">每个邮箱每天可以抽奖两次</font>，仅支持qq邮箱哦，如果你多邮箱我无话可说类的<br>公告支持html', '小猫咪抽奖系统', '年会抽奖系统,节日抽奖系统,双十一活动,618活动,双十二活动', '一款开源免费的php抽奖系统，可用于年会抽奖，节日抽奖等等，支持自定义奖品概率和数量，页面简介美观，操作容易', '<p class=\"copyright\">Copyright &copy; 2024. <a target=\"_blank\" href=\"https://lwcat.cn\">小猫咪抽奖系统</a> All rights reserved.</p>', 'https://lwcat.cn/usr/uploads/2024/11/162820287.png', '云猫', 'https://lwcat.cn/usr/uploads/2024/11/2355151515.jpg', 0, 1, 'smtp.163.com', 465, 'ssl', 'xiccsend@163.com', '123456', 0, '123456', '1234567', '*', '', '', '');
+(1, 'admin', '14e1b600b1fd579f47433b88e8d85291', '抽奖请备注你的联系方式<br><font  color=\"red\">每个邮箱每天可以抽奖两次</font>，仅支持qq邮箱哦，如果你多邮箱我无话可说类的<br>公告支持html', '小猫咪抽奖系统', '年会抽奖系统,节日抽奖系统,双十一活动,618活动,双十二活动', '一款开源免费的php抽奖系统，可用于年会抽奖，节日抽奖等等，支持自定义奖品概率和数量，页面简介美观，操作容易', '<p class=\"copyright\">Copyright &copy; 2024. <a target=\"_blank\" href=\"https://lwcat.cn\">小猫咪抽奖系统</a> All rights reserved.</p>', 'https://lwcat.cn/usr/uploads/2024/11/162820287.png', '云猫', 'https://lwcat.cn/usr/uploads/2024/11/2355151515.jpg', 0, 1, 'smtp.163.com', 465, 'ssl', 'xiccsend@163.com', '123456', 0, '123456', '1234567', '*', '0', '', '');
 
 -- --------------------------------------------------------
 
