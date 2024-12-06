@@ -24,7 +24,7 @@ $checkinfo->close();
 
 
 //检查版本更新
-$version = '1.1';
+$version = '1.1.1';
 
 //开启session
 session_start();
