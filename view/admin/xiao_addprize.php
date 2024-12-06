@@ -1,22 +1,41 @@
 <?php
-$codeuse=0; $emailuse=0;$directoryPath = '../../';
+$codeuse = 0; 
+$emailuse = 0;
+$directoryPath = '../../';
 include("../../core/xiaocore.php");
+
 if (!isset($_SESSION['admin_logged_in'])) {
     header('Location: xiao_login.php');
     exit;
 }
 
-// 处理表单提交请求
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
-    $probability = $_POST['probability'];
-    $total = $_POST['total'];
+    $probability = floatval($_POST['probability']);
+    $total = intval($_POST['total']);
 
-    // 插入奖品数据
-    $conn->query("INSERT INTO prizes (name, probability, total, remaining) VALUES ('$name', $probability, $total, $total)");
+    if ($probability < 0 || $probability > 1) {
+        $error_message = "中奖概率必须在0到1之间！";
+    } elseif ($total <= 0) {
+        $error_message = "奖品数量必须大于0！";
+    } else {
+        try {
+            $stmt = $conn->prepare("INSERT INTO prizes (name, probability, total, update41, update42, update43) 
+                                    VALUES (?, ?, ?, '', '', '')");
+            $stmt->bind_param("sdi", $name, $probability, $total);
 
-    // 重定向到管理页面
-    $delete_message = "添加奖品成功！";
+            if ($stmt->execute()) {
+                $success_message = "添加奖品成功！";
+            } else {
+                $error_message = "添加奖品失败！";
+            }
+
+            $stmt->close();
+        } catch (Exception $e) {
+            $error_message = "发生错误：" . $e->getMessage();
+        }
+    }
+
     $conn->close();
 }
 ?>
@@ -44,8 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h4>添加奖品</h4>
                 </div>
                 <div class="card-body">
-                    <?php if (isset($delete_message)): ?>
-                        <div class="alert alert-info"><?php echo $delete_message; ?></div>
+                    <?php if (isset($success_message)): ?>
+                        <div class="alert alert-info"><?php echo $success_message; ?></div>
+                    <?php endif; ?>
+                    <?php if (isset($error_message)): ?>
+                        <div class="alert alert-danger"><?php echo $error_message; ?></div>
                     <?php endif; ?>
                     <form action="xiao_addprize.php" method="POST">
                         <div class="form-group has-feedback feedback-left">
